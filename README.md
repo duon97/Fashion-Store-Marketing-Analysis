@@ -188,19 +188,59 @@ Self-review and edit my report
 
 ## CAMPAIGN
 
-<img width="1277" height="723" alt="image" src="https://github.com/user-attachments/assets/425305a5-e003-4351-8069-3e8bb94cfbfc" />
-<img width="1278" height="723" alt="image" src="https://github.com/user-attachments/assets/b9cedf27-b359-478d-b2d4-a58eabb86d12" />
-<img width="1286" height="726" alt="image" src="https://github.com/user-attachments/assets/e1f7cfd1-83cc-4daf-8056-83da5cd7ccd0" />
+<img width="1032" height="685" alt="image" src="https://github.com/user-attachments/assets/55ed8707-7279-46bc-9103-e4da74fa216f" />
+<img width="1037" height="682" alt="image" src="https://github.com/user-attachments/assets/909051d6-7fe1-409f-aea0-20c6e7aeca42" />
+<img width="1072" height="678" alt="image" src="https://github.com/user-attachments/assets/ba7c52bb-1cbd-4765-8756-7364ca6d0ada" />
 
 ## PRODUCT ANALYSIS
 
-<img width="1292" height="627" alt="image" src="https://github.com/user-attachments/assets/a8c1deb8-0364-4b0d-8b0c-329343b3be10" />
+<img width="1103" height="695" alt="image" src="https://github.com/user-attachments/assets/836f4472-1dc7-4f05-aaff-21d26e0a93b9" />
 
 
 
 ## IV. INSIGHT AND RECOMENDATION
 
-<img width="1105" height="609" alt="image" src="https://github.com/user-attachments/assets/a65746d6-96be-4aa6-bbd5-84a75879d5c0" />
+I. Insight
+
+1. Campaign Insight : Lookalike
+Tổng quan: Lỗ ~107.9 tỷ. Vấn đề không phải ads đắt hay giá vốn cao, mà do Lookalike đang mua sản phẩm rẻ hơn 200K/đơn so với 2 nhóm khác. AOV chỉ 1.17M trong khi giá vốn/đơn ~1.14M → gross margin/đơn chỉ còn 30–50K, không đủ bù ads 130–180K/đơn. Scale càng mạnh càng lỗ. Đây là nhóm “Poison” phá huỷ profit hệ thống.
+AUDREY SHIRT: Lỗ tổng cộng ~108M trong 4 tuần liên tiếp. Đây là campaign duy nhất đủ sức nhấn chìm toàn bộ segment. Điểm đáng chú ý: spend ngày càng tăng từ W2 → W3 thay vì bị tắt, cho thấy có thể đang được tối ưu auto theo revenue thay vì profit.
+NALANI & MIRENA SKIRT: Lỗ ~15M trong W2+W3, margin/đơn âm (-50K đến -139K). Đã bị tắt sau W3, quyết định đúng.
+Các campaign profit dương ổn định:
+FLOWERS MAKE MY DAY: +2.57M (W1), +2.36M (W2), +4.69M (W3) — bền vững nhất.
+YOU DESERVE THE MOST BEAUTIFUL THINGS: dương đều W1–W3.
+DELIA SET, MACY JUMPSUIT, MELI DRESS, KATY DRESS: W4–W5 đều có lãi.
+Kết luận Lookalike: Không phải tất cả đều kém, mà bị vài campaign lỗ nặng kéo xuống. Lookalike vẫn đưa khách vào mua hàng đúng như kỳ vọng, nhưng AUDREY SHIRT sai giá vốn khiến mỗi đơn bán ra là một lần lỗ. Scale càng mạnh = càng lỗ nhanh.
+Vấn đề hệ thống:
+Sai cấu trúc sản phẩm: Margin/đơn = -140K là con số cố định, không liên quan đến quảng cáo. Bộ phận định giá hoặc nhập giá vốn có lỗi.
+Thiếu cảnh báo sớm: ROAS dưới ngưỡng hòa vốn từ W2 nhưng campaign vẫn scale thêm 3 tuần. Nếu có alert tự động khi ROAS <200 hoặc Profit âm quá ngưỡng, có thể tiết kiệm ~90M lỗ.
+2. Campaign Insight :  Open/Cold
+Ảnh hưởng từ AUDREY SHIRT: Không chỉ phá Lookalike mà còn phá cả Open/Cold.
+Các campaign lỗ nặng khác: TH 5.5 NEW ARRIVAL, STAY ELEGANT, FABRIC FOR SUMMER, NEVA SHIRT & ZUZIE SHORT, SERINA & MANDY OUTFIT OF TODAY. Pattern lặp lại: launch campaign mới với margin âm, scale mạnh, rồi mới phát hiện.
+Hero campaign nổi bật:
+W3: AVIAN DRESS +9.79M, KATY DRESS +7.49M, DANICA DRESS +5.65M.
+W4: MARGNET DRESS +15.67M.
+W5: LISA DRESS +9.94M +5.24M, NEVIN DRESS +6.37M.
+Kết luận Open/Cold: Có khả năng sinh lời rất cao khi gặp đúng sản phẩm, nhưng bị kéo xuống bởi các campaign margin âm chạy song song.
+3. Campaign Insight : Retargeting
+Ảnh hưởng từ Poison campaign: AUDREY SHIRT xuất hiện ở cả 3 segment, phá cả 3. TH 5.5 NEW ARRIVAL là Poison lớn thứ 2, đặc biệt nguy hiểm ở Retargeting.
+Hero campaign W3: AVIAN, KATY, DANICA (OC) + SENSE OF ELEGANCE, LUCIE DRESS, VERENA SET (Re). OC có nhiều Hero mạnh hơn, nên override lỗ tốt hơn. Lookalike vẫn âm vì AUDREY SHIRT chiếm tỷ trọng đơn lớn.
+Nghịch lý Retargeting:
+Về lý thuyết phải lời hơn OC (conversion cao, ads/đơn thấp, AOV gần bằng OC).
+Thực tế bị lỗ nặng hơn do retarget sản phẩm margin âm. Ví dụ: TH 5.5 NEW ARRIVAL lỗ -8.36M ở W2 Re, lớn nhất toàn bộ Retargeting, trong khi OC cùng campaign chỉ lỗ -4.38M.
+Hero của Re phụ thuộc vào 1–2 sản phẩm mỗi tuần, quy mô nhỏ hơn OC.
+Ceiling thấp hơn OC: OC scale AVIAN lên 75M (W3), MARGNET lên 78M (W4), trong khi Re cùng campaign chỉ đạt 11M và 34M.
+4. Product Insight
+Danh mục cần dừng ngay: Áo Tách Set và Chân Váy Tách Set (margin % âm). Đây là nguyên nhân cốt lõi khiến Lookalike lỗ nặng nhất.
+Danh mục nên scale: Set Váy Áo (margin % cao nhất 0.37, AOV 1.9M) và Váy Chiết Eo Xoè (margin 0.25, revenue cao nhất OC). Đây là 2 danh mục tạo ra tiền thực sự.
+Thương hiệu: Hoa là brand duy nhất profit dương. Trừu Tượng lỗ nặng -0.2bn dù margin gần 0, đang dùng volume để bù margin mỏng, không bền vững.
+SKU Retargeting: Green Flower Set margin cao nhất (0.35) nhưng chưa được push đúng. Nelia Set và Delia Set hoạt động tốt nhất.
+
+II. Recommendation theo ROAS/ROI
+ROAS cao, ROI dương → Scale ngân sách có kiểm soát (tăng 10–20%), duy trì creative và target hiện tại.
+ROAS cao, ROI âm → Tối ưu CPM/CPC, thử A/B test creative, hoặc điều chỉnh giá sản phẩm trước khi scale.
+ROAS thấp, ROI dương → Mở rộng tệp khách hàng hoặc tăng ngân sách nhẹ để kiểm tra tiềm năng tăng trưởng.
+ROAS thấp, ROI âm → Tạm dừng hoặc giảm mạnh ngân sách, phân tích lại target và creative, chỉ tiếp tục khi có cải thiện rõ rệt.
 
 
 
