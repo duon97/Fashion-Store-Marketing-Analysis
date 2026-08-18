@@ -1,272 +1,294 @@
-# E-commerce Campaign & Product Performance Analysis
+# Fashion-Store-Marketing-Analysis
 
-## I. Campaign Insights
+Analyze marketing performance, customer behavior, and revenue to identify growth opportunities and support data-driven decision-making.
 
-### 1. Lookalike Performance
+# Market-Expansion-and-Product-Strategy
 
-#### Overall Performance
+Use Power BI to analyze business data to identify new market opportunities and find strategic products.
 
-Lookalike recorded a total loss of approximately **107.9M**.
+## I. Introduction
 
-The main issue was not excessive advertising spend or high COGS, but the segment's concentration on lower-value products. AOV was approximately **200K lower** than the other two segments.
+### 1. Dataset
 
-- **AOV:** 1.17M
-- **COGS per order:** approximately 1.14M
-- **Gross margin per order:** only 30–50K
-- **Advertising cost per order:** 130–180K
+#### Orders Table
 
-The gross margin generated per order was therefore insufficient to cover advertising costs. As a result, **increasing the advertising budget accelerated the losses instead of generating profitable growth**.
+## 🧩 Dim_danh_sach_san_pham
 
-#### AUDREY SHIRT
-
-AUDREY SHIRT was the largest negative contributor within the Lookalike segment, generating approximately **108M in losses over four consecutive weeks**.
-
-A key concern was that spending increased from **W2 to W3** instead of being paused. This suggests that the campaign may have been optimized primarily for **revenue rather than profitability**.
-
-The campaign had already fallen below the **break-even ROAS threshold from W2**, but continued to receive additional budget.
-
-#### NALANI & MIRENA SKIRT
-
-NALANI & MIRENA SKIRT generated approximately **15M in losses during W2 and W3**.
-
-- Margin per order ranged from **-50K to -139K**
-- The campaign was paused after W3
-
-Pausing the campaign was an appropriate decision given its negative unit economics.
-
-#### Consistently Profitable Campaigns
-
-Several campaigns demonstrated sustainable positive profitability:
-
-- **FLOWERS MAKE MY DAY:** 2.57M in W1, 2.36M in W2, and 4.69M in W3
-- **YOU DESERVE THE MOST BEAUTIFUL THINGS:** Maintained positive profit from W1 to W3
-- **DELIA SET:** Positive profit in W4–W5
-- **MACY JUMPSUIT:** Positive profit in W4–W5
-- **MELI DRESS:** Positive profit in W4–W5
-- **KATY DRESS:** Positive profit in W4–W5
-
-#### Key Conclusion
-
-Lookalike was **not inherently underperforming**. Its overall results were primarily dragged down by a small number of highly unprofitable campaigns.
-
-**AUDREY SHIRT** was the most critical issue because its product economics resulted in negative profit per order. Continuing to scale the campaign therefore amplified the losses.
-
-#### System-Level Issue
-
-A negative margin per order of approximately **140K** indicates a structural issue related to **product pricing and unit economics**, rather than advertising performance alone.
-
-A more effective campaign management framework should include automated alerts when:
-
-- ROAS falls below the break-even threshold
-- Profit becomes negative
-- Margin per order becomes negative
-- Advertising cost exceeds the available gross margin
-
-This would allow the team to identify unprofitable campaigns earlier and prevent unnecessary budget scaling.
+| Column Name | Data Type | Description |
+|------------------------|--------------|-------|
+| Material | STRING | Material used to make the product (fabric, plastic, metal, etc.) |
+| Category | STRING | Product group based on business classification |
+| COGS | FLOAT | Production or purchasing cost of the product |
+| Selling Price | FLOAT | Listed selling price of the product |
+| Selling Price + VAT | FLOAT | Selling price including VAT |
+| Purchase Price | FLOAT | Purchase price from the supplier |
+| ID | INTEGER | Unique product identifier |
+| Product Type | STRING | Product classification (e.g., fashion, electronics, household products) |
+| Category Code | STRING | Product category identifier |
+| Internal Category Code | STRING | Category code used in the internal system |
+| Product Code | STRING | Unique SKU or product code |
+| Barcode | STRING | Product barcode |
+| margin % new | FLOAT | New profit margin calculated based on COGS and selling price |
+| Color | STRING | Product color |
+| Product Name | STRING | Display name of the product |
+| Brand | STRING | Brand or manufacturer name |
+| Status | STRING | Product status (active, discontinued, out of stock) |
 
 ---
 
-### 2. Open/Cold Performance
+### 💡 **Purpose**
 
-**AUDREY SHIRT** negatively affected not only Lookalike but also the Open/Cold segment.
+> This table stores detailed information about **products**, including pricing, categories, brands, and physical characteristics.  
+> It helps analyze **business performance**, **profit margins**, and **product trends**.
 
-Other major loss-making campaigns included:
+## 📊 Dim_mkt_camp_cost
 
-- **TH 5.5 NEW ARRIVAL**
-- **STAY ELEGANT**
-- **FABRIC FOR SUMMER**
-- **NEVA SHIRT & ZUZIE SHORT**
-- **SERINA & MANDY OUTFIT OF TODAY**
-
-#### Common Pattern
-
-A recurring pattern was observed across these campaigns:
-
-1. New campaigns were launched with negative or insufficient margins.
-2. Campaigns were subsequently scaled aggressively.
-3. Profitability issues were identified only after significant spending had already occurred.
-4. Scaling therefore increased the absolute loss rather than improving profitability.
-
-This indicates that **profitability should be evaluated before scaling**, rather than relying solely on revenue or ROAS.
-
-#### Hero Campaigns
-
-Several campaigns demonstrated strong profit-generation potential:
-
-| Campaign | Week | Profit |
-|---|---:|---:|
-| AVIAN DRESS | W3 | 9.79M |
-| KATY DRESS | W3 | 7.49M |
-| DANICA DRESS | W3 | 5.65M |
-| MARGNET DRESS | W4 | 15.67M |
-| LISA DRESS | W4–W5 | 9.94M / 5.24M |
-| NEVIN DRESS | W5 | 6.37M |
-
-#### Key Conclusion
-
-Open/Cold has strong potential to generate significant profit when the right products are matched with the right campaigns.
-
-However, overall profitability was diluted by multiple **negative-margin campaigns running simultaneously**.
+| Column Name | Data Type | Description |
+|--------------------------|--------------|-------|
+| Campaign id | STRING | Marketing campaign identifier |
+| Click | INTEGER | Number of clicks on advertisements |
+| CPC | FLOAT | Average cost per click |
+| CPM | FLOAT | Average cost per 1,000 impressions |
+| CustomerType | STRING | Target customer type of the campaign |
+| Campaign Budget Type | STRING | Budget classification (Branding, Conversion, Retargeting, etc.) |
+| Impressions | INTEGER | Total number of ad impressions |
+| Campaign Budget | FLOAT | Total budget allocated to the campaign |
+| Date | DATE | Date when campaign data occurred or was recorded |
+| Campaign Distribution | STRING | Advertising distribution channel (Facebook, Google, TikTok, etc.) |
+| Amount Spent | FLOAT | Total amount spent on the campaign |
+| Campaign Name | STRING | Marketing campaign name |
 
 ---
 
-### 3. Retargeting Performance
+### 💡 **Purpose**
 
-**AUDREY SHIRT** appeared across all three audience segments and had a negative impact on overall profitability.
-
-**TH 5.5 NEW ARRIVAL** was the second-largest negative contributor and was particularly problematic within Retargeting.
-
-#### Hero Campaigns
-
-In W3, the major Hero campaigns included:
-
-**Open/Cold**
-- AVIAN
-- KATY
-- DANICA
-
-**Retargeting**
-- SENSE OF ELEGANCE
-- LUCIE DRESS
-- VERENA SET
-
-Open/Cold had a larger number of strong Hero campaigns, giving the segment a greater ability to offset losses from weaker campaigns.
-
-#### Retargeting Paradox
-
-In theory, Retargeting should have stronger profitability potential than Open/Cold because of:
-
-- Higher conversion rates
-- Lower advertising cost per order
-- Comparable AOV
-
-However, actual performance showed significant losses because Retargeting was heavily concentrated on products with **negative margins**.
-
-#### TH 5.5 NEW ARRIVAL Example
-
-TH 5.5 NEW ARRIVAL generated:
-
-- **Retargeting W2:** -8.36M
-- **Open/Cold W2:** -4.38M
-
-This demonstrates that higher conversion efficiency does not necessarily translate into profitability when the underlying **product economics are unfavorable**.
+> This table stores general information about **marketing campaigns**, including budget, spending, impressions, and engagement performance.  
+> It helps analyze **advertising performance**, **cost by channel**, and **return on investment (ROI)**.
 
 ---
 
-## II. Product Insights
+# 💰 Fact_order
 
-### 1. Categories to Stop or Deprioritize
-
-The following categories should be stopped or significantly deprioritized:
-
-- **Áo Tách Set**
-- **Chân Váy Tách Set**
-
-Both categories had negative margins and were major contributors to the losses in Lookalike.
-
----
-
-### 2. Categories to Scale
-
-#### Set Váy Áo
-
-- **Margin:** 0.37
-- **AOV:** 1.9M
-
-Set Váy Áo had the highest margin among the analyzed categories and demonstrated strong potential for profitable growth.
-
-#### Váy Chiết Eo Xoè
-
-- **Margin:** 0.25
-- **Highest revenue in Open/Cold**
-
-This category combined relatively strong margin with high revenue generation, making it another strong candidate for scaling.
-
-#### Key Takeaway
-
-**Set Váy Áo** and **Váy Chiết Eo Xoè** should receive greater attention in future budget allocation due to their stronger profitability potential.
+| Column Name | Data Type | Description |
+|-----------------------|-----------|--------------|
+| Ad/direct sales | STRING | Sales channel (advertising or direct sales) |
+| Customer Level | STRING | Customer classification (VIP, loyal, new, etc.) |
+| Discount | FLOAT | Discount value applied to the order |
+| Product Category | STRING | Product group based on business classification |
+| factData.Product Code | STRING | Product code linked to the factData table |
+| Price | FLOAT | Actual selling price of the product |
+| COGS | FLOAT | Cost of goods sold or production cost of the product |
+| ID | INTEGER | Unique order identifier |
+| Cancellation Reason | STRING | Reason for order cancellation, if any |
+| Customer ID | STRING | Customer identifier |
+| Product Code | STRING | Product SKU code in the order |
+| Parent Product Code | STRING | Main product code, if the product is a variant or child version |
+| Barcode | STRING | Product barcode |
+| margin new | FLOAT | New profit margin calculated based on COGS and selling price |
+| Source | STRING | Order source (website, Facebook, Shopee, etc.) |
+| Ward/Commune | STRING | Detailed customer address (ward/commune) |
+| District | STRING | Customer district |
+| Product | STRING | Product name in the order |
+| Birthday | DATE | Customer date of birth, if available |
+| Quantity | INTEGER | Quantity of products purchased |
+| Customer Name | STRING | Customer full name |
+| Parent Product Name | STRING | Main product name, if it is a variant |
+| City | STRING | Customer's city of residence |
+| Time | DATE | Order date and time |
+| Status | STRING | Order status (delivered, processing, cancelled, etc.) |
 
 ---
 
-### 3. Brand Performance
+### 💡 **Purpose**
 
-**Hoa** was the only brand generating positive profit.
-
-In contrast, **Trừu Tượng** recorded approximately **0.2B in losses despite having a margin close to zero**.
-
-This indicates that relying on higher sales volume to compensate for weak margins is **not a sustainable growth strategy**.
-
-The analysis suggests that future budget allocation should consider **profitability and contribution margin**, rather than revenue volume alone.
+> This table stores detailed **order and customer data**, including product information, pricing, discounts, addresses, and order status.  
+> It helps analyze **revenue, profit, purchasing behavior**, and **sales channel performance**.
 
 ---
 
-### 4. Retargeting SKU Performance
+## 📈 Fact_mkt_camp_by_sku_cost
 
-**Green Flower Set** recorded the highest margin at **0.35**, but its potential was not fully utilized.
-
-The strongest-performing Retargeting SKUs were:
-
-1. **Nelia Set**
-2. **Delia Set**
-
-These SKUs should be considered for additional testing and controlled budget expansion.
+| Column Name | Data Type | Description |
+|-----------------------------|-----------|--------------|
+| Comments by AM | INTEGER | Number of comments according to the Account Manager |
+| Inbox + Comments by AM | INTEGER | Total messages and comments according to the Account Manager |
+| Inbox by AM | INTEGER | Number of messages according to the Account Manager |
+| Spend by Product | FLOAT | Advertising cost for each product |
+| Post Running Date | DATE | Date when the advertisement was run by post |
+| Post Comments | INTEGER | Total comments on the advertising post |
+| Campaign id | STRING | Marketing campaign identifier |
+| Click | INTEGER | Number of clicks on advertisements |
+| Click by AM | INTEGER | Number of clicks according to the Account Manager |
+| Cost/Result by AM | FLOAT | Cost per result according to the Account Manager |
+| CPC | FLOAT | Cost Per Click |
+| CPC by AM | FLOAT | CPC according to the Account Manager |
+| CPM | FLOAT | Cost Per Mille – Cost per 1,000 impressions |
+| CPM by AM | FLOAT | CPM according to the Account Manager |
+| CTR | FLOAT | Click-Through Rate |
+| CTR by AM | FLOAT | CTR according to the Account Manager |
+| Currency | STRING | Currency used (VND, USD, etc.) |
+| Selling Price | FLOAT | Selling price of the product related to the campaign |
+| Existing Customers by AM | INTEGER | Number of existing customers according to the Account Manager |
+| New Customers by AM | INTEGER | Number of new customers according to the Account Manager |
+| Started Conversations | INTEGER | Number of conversations initiated through advertisements |
+| Campaign Budget Type | STRING | Budget classification (Branding, Conversion, etc.) |
+| Impressions | INTEGER | Total number of ad impressions |
+| Impressions by AM | INTEGER | Number of impressions according to the Account Manager |
+| Product Code | STRING | SKU code of the product related to the campaign |
+| Campaign Budget | FLOAT | Total marketing campaign budget |
+| Product Budget | FLOAT | Budget allocated to each product |
+| Date | DATE | Date when campaign cost or performance was recorded |
+| Campaign Distribution | STRING | Advertising distribution channel (Facebook, Google, etc.) |
+| Allocated Units Sold | INTEGER | Number of units sold allocated to each campaign |
+| Total Units Sold | INTEGER | Total number of products sold |
+| Stock Quantity | INTEGER | Inventory quantity related to the campaign |
+| Amount Spent (VND) | FLOAT | Total campaign spending in VND |
+| Post Name | STRING | Name of the advertising post |
+| Campaign Name | STRING | Marketing campaign name |
+| Product Name | STRING | Product name related to the campaign |
+| Product Name 2 | STRING | Additional product name or another version |
+| New Messages | INTEGER | Number of new messages generated from the campaign |
+| Total Comments on Product | INTEGER | Total number of comments on the product |
+| Total Units Sold by Campaign | INTEGER | Total number of units sold by campaign |
 
 ---
 
-# III. Recommendations Based on ROAS & ROI
+### 💡 **Purpose**
 
-| ROAS | ROI | Recommended Action |
-|---|---|---|
-| High | Positive | **Scale cautiously:** Increase budget by 10–20% while maintaining the current creative and targeting strategy. |
-| High | Negative | **Optimize before scaling:** Reduce CPM/CPC, conduct creative A/B testing, or review product pricing and margin. |
-| Low | Positive | **Test growth potential:** Expand the audience or increase budget gradually to evaluate scalability. |
-| Low | Negative | **Pause or significantly reduce spend:** Reassess targeting, creative, and product economics before resuming investment. |
+> This table stores detailed data on **marketing campaign performance by SKU**, including cost, impressions, engagement, and sales.  
+> It helps analyze **advertising performance** and **optimize budget allocation** for each product.
+
+### 🔗 **Data Relationships**
+
+<img width="1112" height="343" alt="image" src="https://github.com/user-attachments/assets/a01be390-3388-4ef3-8790-bf0b9e75ed09" />
+
+### 🔗 **Relationship Structure**
+
+- **Dim_mkt_camp_cost (1)** → **Fact_mkt_camp_by_sku_cost (*)**  
+  → Relationship based on `Campaign id` to analyze campaign cost and performance.
+
+- **Dim_danh_sach_san_pham (1)** → **Fact_mkt_camp_by_sku_cost (*)**  
+  → Relationship based on `Product Code` to compare advertising performance by product.
+
+- **Dim_danh_sach_san_pham (1)** → **Fact_order (*)**  
+  → Relationship based on `Product Code` to analyze actual revenue and profit.
 
 ---
 
-## IV. Key Business Takeaways
+### 2. Problem to Be Solved
 
-### 1. Revenue Growth Does Not Equal Profitability
+Build a tactical report to help company leaders understand the marketing budget spending process and campaign performance, link sales revenue with marketing spending, and optimize marketing budget performance based on KPIs. From there, propose tactics to improve performance.
 
-A campaign can generate strong revenue and ROAS while still producing negative ROI when product margins are insufficient.
+## II. Design Thinking
 
-Therefore, campaign decisions should consider:
+## STEP 1: Empathize
 
-**Revenue → ROAS → Gross Margin → Profit → ROI**
+<img width="1176" height="627" alt="image" src="https://github.com/user-attachments/assets/1df5b4e0-bc87-4230-b910-310893790a87" />
 
-rather than relying on ROAS alone.
+<img width="1060" height="643" alt="image" src="https://github.com/user-attachments/assets/c748daeb-b301-4a46-b95c-d2907f2bdfcd" />
 
-### 2. Product Economics Should Be Evaluated Before Scaling
+## STEP 2: Define POV
 
-Negative-margin products should not be aggressively scaled regardless of their conversion performance.
+<img width="1344" height="639" alt="image" src="https://github.com/user-attachments/assets/4c8497b9-c58f-4937-9d02-61bb25af4fde" />
 
-Before increasing budget, campaigns should pass a profitability check based on:
+<img width="1266" height="584" alt="image" src="https://github.com/user-attachments/assets/14e01408-42f4-4b40-97be-790169b44ed4" />
 
-- AOV
-- COGS
-- Gross margin
-- Advertising cost per order
-- Break-even ROAS
-- Profit per order
+## STEP 3: Ideate
 
-### 3. Budget Allocation Should Be Profit-Driven
+<img width="1792" height="570" alt="image" src="https://github.com/user-attachments/assets/e34ba597-d8b6-4f19-8e44-dd4d947f3411" />
 
-Budget should be shifted away from campaigns and products with consistently negative ROI toward campaigns with:
+## STEP 4: Prototype and Review
 
-- Positive profit
-- Positive ROI
-- Sustainable ROAS
-- Healthy product margins
+Choose the type of chart suitable for the questions.
 
-### 4. Automated Profitability Monitoring
+Presentation and layout of each part of the report (size, chart arrangement, etc.).
 
-A profitability monitoring system should automatically flag campaigns when:
+Choose the color of the report.
 
-```text
-ROAS < Break-even ROAS
-OR
-ROI < 0
-OR
-Profit < 0
-OR
-Margin per Order < 0
+Self-review and edit the report.
+
+## III. VISUALIZATION
+
+## OVERVIEW
+
+<img width="1325" height="719" alt="image" src="https://github.com/user-attachments/assets/1e99c1ca-2ae9-4541-8f7e-b25b0c4c7d2a" />
+
+## CAMPAIGN
+
+<img width="1032" height="685" alt="image" src="https://github.com/user-attachments/assets/55ed8707-7279-46bc-9103-e4da74fa216f" />
+
+<img width="1037" height="682" alt="image" src="https://github.com/user-attachments/assets/909051d6-7fe1-409f-aea0-20c6e7aeca42" />
+
+<img width="1072" height="678" alt="image" src="https://github.com/user-attachments/assets/ba7c52bb-1cbd-4765-8756-7364ca6d0ada" />
+
+## PRODUCT ANALYSIS
+
+<img width="1103" height="695" alt="image" src="https://github.com/user-attachments/assets/836f4472-1dc7-4f05-aaff-21d26e0a93b9" />
+
+## IV. INSIGHT AND RECOMMENDATION
+
+## I. Insight
+
+### 1. Campaign Insight: Lookalike
+
+**Overview:** Lookalike recorded a loss of approximately **107.9 billion**. The main reason did not come from high advertising costs or high COGS, but from Lookalike focusing on products with an order value approximately **200K lower** than the other two segments.
+
+AOV was only **1.17M**, while COGS per order was approximately **1.14M**, resulting in only around **30–50K gross margin per order**, which was not enough to cover the **130–180K advertising cost per order**.
+
+Therefore, the more the budget was scaled, the more the losses increased.
+
+**AUDREY SHIRT:** Recorded a loss of approximately **108M for four consecutive weeks** and was the campaign with the largest impact on the entire segment. Spend increased from W2 to W3 instead of being turned off, indicating that the campaign may have been optimized for revenue rather than profit.
+
+**NALANI & MIRENA SKIRT:** Recorded a loss of approximately **15M in W2 and W3**, with negative margin per order ranging from **50K to 139K**. The campaign was turned off after W3, which was an appropriate decision.
+
+**Campaigns with stable positive profit:** FLOWERS MAKE MY DAY achieved **2.57M in W1, 2.36M in W2, and 4.69M in W3**, showing the most sustainable performance. YOU DESERVE THE MOST BEAUTIFUL THINGS also maintained positive profit from W1 to W3. DELIA SET, MACY JUMPSUIT, MELI DRESS, and KATY DRESS all recorded profit from W4 to W5.
+
+**Conclusion:** Lookalike was not completely ineffective but was dragged down by several campaigns with large losses. AUDREY SHIRT was the main problem due to unsuitable COGS, causing each order to generate negative profit. Continuing to scale the campaign caused the losses to increase more rapidly.
+
+**System Issue:** A negative margin per order of approximately **140K** is an issue related to the product pricing structure and does not directly depend on advertising. In addition, the campaign had already had ROAS below the break-even threshold since W2 but continued to scale for three weeks. Setting up automated alerts when ROAS falls below the threshold or Profit becomes negative could help significantly limit losses.
+
+### 2. Campaign Insight: Open/Cold
+
+AUDREY SHIRT not only affected Lookalike but also had a negative impact on Open/Cold.
+
+Some other campaigns with large losses included **TH 5.5 NEW ARRIVAL, STAY ELEGANT, FABRIC FOR SUMMER, NEVA SHIRT & ZUZIE SHORT, and SERINA & MANDY OUTFIT OF TODAY**.
+
+The common pattern was that new campaigns were launched with negative margins and then heavily scaled before profitability issues were identified.
+
+**Notable Hero campaigns:** AVIAN DRESS achieved **9.79M**, KATY DRESS achieved **7.49M**, and DANICA DRESS achieved **5.65M** in W3. MARGNET DRESS achieved **15.67M** in W4. LISA DRESS achieved **9.94M and 5.24M**, while NEVIN DRESS achieved **6.37M** in W5.
+
+**Conclusion:** Open/Cold has the ability to generate high profit when combined with the right products, but overall performance was affected by negative-margin campaigns running simultaneously.
+
+### 3. Campaign Insight: Retargeting
+
+AUDREY SHIRT appeared in all three segments and negatively affected the entire system. TH 5.5 NEW ARRIVAL was the campaign with the second-largest impact, especially in Retargeting.
+
+In W3, the Hero campaigns included **AVIAN, KATY, and DANICA** in Open/Cold and **SENSE OF ELEGANCE, LUCIE DRESS, and VERENA SET** in Retargeting. Open/Cold had more strong Hero campaigns and therefore had a greater ability to offset losses.
+
+**Retargeting Paradox:** In theory, Retargeting has the potential to generate higher profit than Open/Cold due to higher conversion, lower advertising cost per order, and comparable AOV. However, in reality, Retargeting suffered significant losses because it focused on retargeting products with negative margins.
+
+**TH 5.5 NEW ARRIVAL** is a typical example, recording a loss of **8.36M in W2 Retargeting**, while Open/Cold for the same campaign recorded a loss of only **4.38M**.
+
+### 4. Product Insight
+
+**Categories to Stop:** Áo Tách Set and Chân Váy Tách Set had negative margins and were the main reasons why Lookalike recorded large losses.
+
+**Categories to Scale:** Set Váy Áo had the highest margin at **0.37** and an AOV of **1.9M**. Váy Chiết Eo Xoè had a margin of **0.25** and the highest revenue in Open/Cold. These are the two categories with strong potential to generate profit.
+
+**Brand:** Hoa was the only brand with positive profit. Trừu Tượng recorded a loss of approximately **0.2bn** despite having a margin close to zero, showing that using volume to compensate for low margins is not sustainable.
+
+**Retargeting SKU:** Green Flower Set had the highest margin at **0.35** but was not fully utilized. Nelia Set and Delia Set were the two best-performing SKUs.
+
+## II. Recommendation Based on ROAS/ROI
+
+**High ROAS, Positive ROI**  
+→ Scale the budget in a controlled manner (**increase by 10–20%**) while maintaining the current creative and targeting.
+
+**High ROAS, Negative ROI**  
+→ Optimize **CPM/CPC**, conduct **creative A/B testing**, or adjust the **product price** before scaling.
+
+**Low ROAS, Positive ROI**  
+→ Expand the **customer audience** or slightly increase the budget to test growth potential.
+
+**Low ROAS, Negative ROI**  
+→ Temporarily pause or significantly reduce the budget, re-analyze the target and creative, and only continue when there is a clear improvement.
