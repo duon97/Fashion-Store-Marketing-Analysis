@@ -249,10 +249,10 @@ Thương hiệu: Hoa là brand duy nhất có profit dương. Trừu Tượng gh
 SKU Retargeting: Green Flower Set có margin cao nhất ở mức 0.35 nhưng chưa được khai thác đúng mức. Nelia Set và Delia Set là hai SKU có hiệu quả tốt nhất.
 
 II. Recommendation theo ROAS/ROI
-ROAS cao, ROI dương → Scale ngân sách có kiểm soát (tăng 10–20%), duy trì creative và target hiện tại.
-ROAS cao, ROI âm → Tối ưu CPM/CPC, thử A/B test creative, hoặc điều chỉnh giá sản phẩm trước khi scale.
-ROAS thấp, ROI dương → Mở rộng tệp khách hàng hoặc tăng ngân sách nhẹ để kiểm tra tiềm năng tăng trưởng.
-ROAS thấp, ROI âm → Tạm dừng hoặc giảm mạnh ngân sách, phân tích lại target và creative, chỉ tiếp tục khi có cải thiện rõ rệt.
+ROAS cao, ROI dương -> Scale ngân sách có kiểm soát (tăng 10–20%), duy trì creative và target hiện tại.
+ROAS cao, ROI âm -> Tối ưu CPM/CPC, thử A/B test creative, hoặc điều chỉnh giá sản phẩm trước khi scale.
+ROAS thấp, ROI dương -> Mở rộng tệp khách hàng hoặc tăng ngân sách nhẹ để kiểm tra tiềm năng tăng trưởng.
+ROAS thấp, ROI âm -> Tạm dừng hoặc giảm mạnh ngân sách, phân tích lại target và creative, chỉ tiếp tục khi có cải thiện rõ rệt.
 
 
 
